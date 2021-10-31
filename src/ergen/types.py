@@ -4,9 +4,13 @@ import pydantic
 default_none = "::None"
 
 
+def to_camel(arg: str) -> str:
+    return "".join(x.capitalize() or " " for x in arg.split("_"))
+
+
 class CamelModel(pydantic.BaseModel):
     class Config:
-        alias_generator = lambda arg: ''.join(elm.title() for elm in arg.split('_'))
+        alias_generator = to_camel
         allow_population_by_field_name = True
 
 
