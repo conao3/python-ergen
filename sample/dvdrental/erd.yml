@@ -1,0 +1,81 @@
+Version: 0.1
+
+Tables:
+- Name: category
+  Columns:
+  - Name: category_id
+    Type: int
+    IsPrimaryKey: true
+  - Name: name
+    Type: varchar
+    TypeArg1: 255
+  - Name: last_update
+    Type: datetime
+
+- Name: film_category
+  Columns:
+  - Name: film_id
+    Type: int
+    IsPrimaryKey: true
+    ForeignKey:
+      RefTable: film
+      RefColumn: film_id
+  - Name: category_id
+    Type: int
+    IsPrimaryKey: true
+    ForeignKey:
+      RefTable: category
+      RefColumn: category_id
+  - Name: last_update
+    Type: datetime
+
+- Name: film
+  Columns:
+    - Name: film_id
+      Type: int
+      IsPrimaryKey: true
+    - Name: title
+      Type: varchar
+      TypeArg1: 255
+    - Name: description
+      Type: text
+    - Name: release_year
+      Type: int
+    - Name: language_id
+      Type: int
+      ForeignKey:
+        RefTable: language
+        RefColumn: language_id
+    - Name: original_language_id
+      Type: int
+    - Name: rental_duration
+      Type: int
+    - Name: rental_rate
+      Type: decimal
+      TypeArg1: 10
+      TypeArg2: 2
+    - Name: length
+      Type: int
+    - Name: replacement_cost
+      Type: decimal
+      TypeArg1: 10
+      TypeArg2: 2
+    - Name: rating
+      Type: varchar
+      TypeArg1: 10
+    - Name: special_features
+      Type: varchar
+      TypeArg1: 255
+    - Name: last_update
+      Type: datetime
+
+- Name: language
+  Columns:
+  - Name: language_id
+    Type: int
+    IsPrimaryKey: true
+  - Name: name
+    Type: varchar
+    TypeArg1: 50
+  - Name: last_update
+    Type: datetime
