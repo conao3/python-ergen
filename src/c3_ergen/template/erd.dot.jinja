@@ -3,12 +3,11 @@ digraph {
         rankdir="LR"
         fontname="Helvetica"
         nodesep=0.5
-    ];
-    node [shape=plain];
-    edge [dir=both];
         labelloc=t
         {% if title %}label="{{ title }}"{% endif %}
     ]
+    node [shape=plain fontsize=12]
+    edge [dir=both]
 
 {% for table in tables %}
     "{{ table.name }}" [label=<
@@ -20,13 +19,13 @@ digraph {
             {%- endif %}</font></td></tr>
     {%- endfor %}
         </table>
-    >];
+    >]
 {% endfor %}
 
 {% for table in tables %}
     {%- for column in table.columns %}
     {%- if column.foreign_key %}
-    "{{ column.foreign_key.ref_table }}":"{{ column.foreign_key.ref_column }}" -> "{{ table.name }}":"{{ column.name }}" [arrowhead=crow arrowtail=nonetee];
+    "{{ column.foreign_key.ref_table }}":"{{ column.foreign_key.ref_column }}" -> "{{ table.name }}":"{{ column.name }}" [arrowhead=crow arrowtail=nonetee]
     {%- endif %}
     {%- endfor %}
 {%- endfor %}
