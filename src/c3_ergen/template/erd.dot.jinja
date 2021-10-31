@@ -12,7 +12,9 @@ digraph {
         <table border="1" cellborder="0" cellspacing="0" cellpadding="5">
             <tr><td bgcolor="black"><font color="white">{{ table.name }}</font></td></tr>
     {%- for column in table.columns %}
-            <tr><td port="{{ column.name }}" align="left">{{ column.name }}</td></tr>
+            <tr><td port="{{ column.name }}" align="left">{{ column.name }} <font color="grey60">{{ column.type }}
+            {%- if column.type_arg1 %}({{ column.type_arg1 }}{% if column.type_arg2 %}, {{ column.type_arg2 }}{% endif %})
+            {%- endif %}</font></td></tr>
     {%- endfor %}
         </table>
     >];

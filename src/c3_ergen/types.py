@@ -18,6 +18,8 @@ class ForeignKeyType(CamelModel):
 class ColumnType(CamelModel):
     name: str
     type: str
+    type_arg1: str = None
+    type_arg2: str = None
     nullable: bool = False
     primary_key: bool = False
     foreign_key: ForeignKeyType = None
