@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "c3-ergen"
+name = "ergen"
 version = "0.1.0"
 description = ""
 authors = ["Naoya Yamashita <conao3@gmail.com>"]
 license = "Apache-2.0"
 
 [tool.poetry.scripts]
-ergen = "c3_ergen.cli:app"
+ergen = "ergen.cli:app"
 
 [tool.poetry.dependencies]
 python = "^3.9"
