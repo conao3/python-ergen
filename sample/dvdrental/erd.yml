@@ -1,5 +1,7 @@
 Version: 0.1
 
+Title: Dvdrental sample
+
 Tables:
 - Name: category
   Columns:

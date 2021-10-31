@@ -36,3 +36,4 @@ class TableType(CamelModel):
 class ErdType(CamelModel):
     version: float
     tables: list[TableType]
+    title: str = None

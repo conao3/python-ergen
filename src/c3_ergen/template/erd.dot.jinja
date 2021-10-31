@@ -6,6 +6,9 @@ digraph {
     ];
     node [shape=plain];
     edge [dir=both];
+        labelloc=t
+        {% if title %}label="{{ title }}"{% endif %}
+    ]
 
 {% for table in tables %}
     "{{ table.name }}" [label=<
