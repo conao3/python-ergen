@@ -10,7 +10,7 @@ env = jinja2.Environment(loader=fileSystemLoader)
 
 def main(data: types.ErdType):
     template = env.get_template('erd.dot.jinja')
-    print(template.render(**data.dict()))
+    return template.render(**data.dict())
 
 
 if __name__ == "__main__":
