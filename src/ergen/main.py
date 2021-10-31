@@ -13,5 +13,10 @@ def main(data: types.ErdType):
     return template.render(**data.dict())
 
 
+def generate_erd(data: types.ErdType) -> str:
+    template = env.get_template('erd.dot.jinja')
+    return template.render(**data.dict())
+
+
 if __name__ == "__main__":
     main()

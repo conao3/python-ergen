@@ -30,7 +30,7 @@ def er(
     """
     with open(input_file, "r") as f:
         data = yaml.safe_load(f)
-        typer.echo(main.main(types.ErdType(**data)))
+        typer.echo(main.generate_erd(types.ErdType(**data)))
 
 
 @app.callback()
