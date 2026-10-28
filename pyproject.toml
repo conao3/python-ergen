@@ -9,15 +9,15 @@ license = "Apache-2.0"
 ergen = "ergen.cli:app"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-typer = "^0.4.0"
-Jinja2 = "^3.0.2"
-pydantic = "^1.10.13"
-PyYAML = "^6.0"
+python = "^3.11"
+typer = "^0.27.3"
+Jinja2 = "^3.1.6"
+pydantic = "^2.14.1"
+PyYAML = "^6.0.3"
 
 [tool.poetry.dev-dependencies]
-pytest = { version = "^9.0.3", python = ">=3.10" }
-flake8 = "^4.0.1"
+pytest = "^9.2.0"
+flake8 = "^7.4.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

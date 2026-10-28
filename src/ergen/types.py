@@ -9,27 +9,29 @@ def to_camel(arg: str) -> str:
 
 
 class CamelModel(pydantic.BaseModel):
-    class Config:
-        alias_generator = to_camel
-        allow_population_by_field_name = True
+    model_config = pydantic.ConfigDict(
+        alias_generator=to_camel,
+        populate_by_name=True,
+        coerce_numbers_to_str=True,
+    )
 
 
 class ForeignKeyType(CamelModel):
     ref_table: str
-    ref_column: str = None
+    ref_column: str | None = None
 
 
 class ColumnType(CamelModel):
     name: str
     type: str
-    type_arg1: str = None
-    type_arg2: str = None
+    type_arg1: str | None = None
+    type_arg2: str | None = None
     nullable: bool = False
     primary_key: bool = False
-    foreign_key: ForeignKeyType = None
+    foreign_key: ForeignKeyType | None = None
     unique: bool = False
     default: str = default_none
-    comment: str = None
+    comment: str | None = None
 
 
 class TableType(CamelModel):
@@ -40,4 +42,4 @@ class TableType(CamelModel):
 class ErdType(CamelModel):
     version: float
     tables: list[TableType]
-    title: str = None
+    title: str | None = None
