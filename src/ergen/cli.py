@@ -1,6 +1,5 @@
 import typer
 import yaml
-import types
 from . import main
 from . import types
 
